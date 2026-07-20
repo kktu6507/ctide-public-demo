@@ -1,0 +1,10 @@
+{
+  "name": "ctide-public-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Live demo of cressetide (/ctide:vigil): a real tool, a seeded bug, one unscripted run.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
