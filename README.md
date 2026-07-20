@@ -32,6 +32,7 @@ Before the fix, feed it any Chinese article and you will see the bug with your o
 ## Honest disclosure
 
 - The bug and the test gap were designed in; the vigil run was unrehearsed — the record is the actual output.
+- This run: executed 2026-07-20 with a three-reviewer panel; round one ruled FIX REQUIRED (a mutation-survivor gap was caught), READY after repair — the full story is in [EVIDENCE.md](EVIDENCE.md).
 - Run date, model, and cost live in EVIDENCE.md's Live run block.
 - ctide has no telemetry — a run only counts if a record like this one exists.
 

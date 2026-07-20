@@ -32,6 +32,7 @@ node src/readtime.mjs README.md   # この README の読了時間を見積もる
 ## 正直な開示
 
 - バグとテストの欠落は設計されたもの。vigil run はリハーサルなしで、記録は実際の出力そのものです。
+- 今回の run：2026-07-20 実行、レビュアー 3 名の panel。第 1 巡は FIX REQUIRED（ミュータント生存ギャップを検出）、修復後に READY——全経過は [EVIDENCE.md](EVIDENCE.md) を参照。
 - 実行日・モデル・コストは EVIDENCE.md の Live run ブロックに記載しています。
 - ctide にテレメトリはありません——run が「数えられる」かどうかは、この種の記録があるかどうかで決まります。
 

@@ -6,14 +6,20 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-export function analyze(text, { wpm = 200 } = {}) {
-  const words = countWords(text);
-  const minutes = words === 0 ? 0 : Math.max(1, Math.ceil(words / wpm));
+// CJK text has no word spaces, so it is read per character, not per whitespace token.
+const CJK_CHARS = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/gu;
+
+export function analyze(text, { wpm = 200, cpm = 300 } = {}) {
+  const cjkChars = (text.match(CJK_CHARS) || []).length;
+  const latinWords = countLatinWords(text.replace(CJK_CHARS, " "));
+  const words = cjkChars + latinWords;
+  const minutes = words === 0 ? 0 : Math.max(1, Math.ceil(cjkChars / cpm + latinWords / wpm));
   return { words, minutes };
 }
 
-function countWords(text) {
-  return text.trim().split(/\s+/).filter(Boolean).length;
+function countLatinWords(text) {
+  // A token with no letter or digit (e.g. leftover CJK punctuation) is not a word.
+  return text.trim().split(/\s+/).filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

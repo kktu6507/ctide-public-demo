@@ -32,6 +32,7 @@ node src/readtime.mjs README.md   # 估這份 README 的閱讀時間
 ## 誠實揭露
 
 - bug 與測試缺口是刻意設計的；vigil run 未經排練，記錄即實際輸出。
+- 本次 run：2026-07-20 執行，三人 reviewer panel，第一輪裁 FIX REQUIRED（抓到一個變異倖存缺口）、修復後 READY——完整經過見 [EVIDENCE.md](EVIDENCE.md)。
 - 執行日期、模型與成本記在 EVIDENCE.md 的 Live run 區塊。
 - ctide 沒有遙測——一次 run 算不算數，全看有沒有這種記錄。
 
